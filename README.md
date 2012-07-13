@@ -1,7 +1,7 @@
-job-conf-error
+Background on job-conf-error
 ==============
 
-This bare-bones project illustrates a problem I've seen while trying to change memory configuration using `with-job-conf` macro. This occurs in cluster mode using AWS Elastic MapReduce. I'm not sure whether this is an issue with Cascalog or EMR, so it would be great to see someone try this out using their own setup.
+This bare-bones project illustrates a problem I've seen using [Cascalog](https://github.com/nathanmarz/cascalog) while trying to set the memory configuration for a job using `with-job-conf` macro. This occurs in cluster mode using AWS Elastic MapReduce. I'm not sure whether this is an issue with Cascalog or EMR, so it would be great to see someone try this out using their own setup.
 
 There's more detail about the problem in [this issue](https://github.com/reddmetrics/forma-clj/issues/70) for the [forma-clj](https://github.com/reddmetrics/forma-clj) project. 
 
@@ -21,7 +21,7 @@ This is the query we'll be running:
            (src ?a ?b)))))
 ```
 
-To reproduce the problem, uberjar the project and launch a repl:
+You can run this directly at the repl, or from an uberjar:
 
 ```shell
 lein uberjar
@@ -36,3 +36,5 @@ Then switch into the correct namespace and run the sample query:
 
 (run-me)
 ```
+
+Unless I'm crazy, you should find that the job is submitted but never actually starts.
